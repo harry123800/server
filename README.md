@@ -1,18 +1,18 @@
 # server
 
-TO RUN THE SERVER:
+###TO RUN THE SERVER:
 
   1. git clone and cd into the folder 'Play'
   2. mvn install
   3. java -cp target/123-1.0-SNAPSHOT.jar MyServer
   
-TO TEST THE SERVER USING bmemcached:
+###TO TEST THE SERVER USING bmemcached:
   Please do not use auth to connect to the server, becuase it doesn't support authentication.
   Use:
   client = bmemcached.Client(('127.0.0.1',)) 
   to connect to the server locally.
   
-IMPLEMENTATION INTRO:
+###IMPLEMENTATION INTRO:
   1) The server supports memcached protocols on top of TCP. It supports only get and set request. 
   The key-pair value is restricted to String type.
   2) It is a single machine design for simplicity.
@@ -23,7 +23,7 @@ IMPLEMENTATION INTRO:
   accessing. Race condition happens when more than two readers or writers access the map. 
   There is no deadlock in the code because there exists no cycle in resource-request graph.
   
-  Things to improve:
+  ###Things to improve:
   1) To support large data storage, a multi-machine system is to be designed. We could use master-slave pattern where 
   one machine is used as master to store metadata of how key-value pairs are distributed across slave machines. The 
   metadata could be a sturcture of a two-level B+ tree where each leaf node stores a slave machine addresss. The B+ tree 
