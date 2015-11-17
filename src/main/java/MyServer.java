@@ -6,7 +6,7 @@ import java.net.ServerSocket;
  */
 public class MyServer {
     public static void main(String[] args) throws IOException {
-        ServerSocket serverSocket;
+        ServerSocket serverSocket = null;
         try {
             serverSocket = new ServerSocket(11211);
         }
