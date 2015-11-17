@@ -14,6 +14,8 @@ public class MyServer {
             System.out.println("please kill all processes in port 11211 and retry");
             System.exit(-1);
         }
+        System.out.println("Memcached Server started");
+        System.out.println("Contact whq1238000@gmail.com for any questions");
         while (true) {
             try {
                 ClientWorker clientWorker = new ClientWorker(serverSocket.accept());
