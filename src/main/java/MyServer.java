@@ -6,9 +6,14 @@ import java.net.ServerSocket;
  */
 public class MyServer {
     public static void main(String[] args) throws IOException {
-
-        ServerSocket serverSocket = new ServerSocket(11211);
-
+        ServerSocket serverSocket;
+        try {
+            serverSocket = new ServerSocket(11211);
+        }
+        catch (IOException ex) {
+            System.out.println("please kill all processes in port 11211 and retry");
+            System.exit(-1);
+        }
         while (true) {
             try {
                 ClientWorker clientWorker = new ClientWorker(serverSocket.accept());
