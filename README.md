@@ -8,8 +8,10 @@
   
 ###TO TEST THE SERVER USING bmemcached:
   Please do not use auth to connect to the server, becuase it doesn't support authentication.
-  Use:#
-  `client = bmemcached.Client(('127.0.0.1',))` #
+  Use:
+
+  `client = bmemcached.Client(('127.0.0.1',))` 
+
   to connect to the server locally.
   
 ###IMPLEMENTATION INTRO:
