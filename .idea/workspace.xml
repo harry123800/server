@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="374cc4c5-7c61-4acc-b6c3-377027e707f2" name="Default" comment="" />
+    <list default="true" id="374cc4c5-7c61-4acc-b6c3-377027e707f2" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ConcurrentCacheHashMap.class" afterPath="$PROJECT_DIR$/target/classes/ConcurrentCacheHashMap.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/MyServer.class" afterPath="$PROJECT_DIR$/target/classes/MyServer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/RequestMessage.class" afterPath="$PROJECT_DIR$/target/classes/RequestMessage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ResponseMessage.class" afterPath="$PROJECT_DIR$/target/classes/ResponseMessage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/MyServer.java" afterPath="$PROJECT_DIR$/src/main/java/MyServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="playServer.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MyServer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MyServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/MyServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.111111">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.48723897">
+              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,16 +45,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientWorker.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientWorker.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ClientWorker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49126637">
-              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#240#241#0" expanded="true" />
                 <element signature="e#288#289#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -106,6 +125,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
@@ -115,13 +137,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/ProtocolMessage.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ClientWorker.java" />
         <option value="$PROJECT_DIR$/src/main/java/MessageProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/ResponseMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/RequestMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MyServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ConcurrentCacheHashMap.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/MyServer.java" />
       </list>
     </option>
   </component>
@@ -140,12 +162,12 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1443" />
-    <option name="y" value="174" />
+    <option name="x" value="-1346" />
+    <option name="y" value="176" />
     <option name="width" value="1440" />
     <option name="height" value="793" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -532,15 +554,15 @@
       <created>1447722862097</created>
       <option name="number" value="Default" />
       <updated>1447722862097</updated>
-      <workItem from="1447722863482" duration="35946000" />
+      <workItem from="1447722863482" duration="37028000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35946000" />
+    <option name="totallyTimeSpent" value="37028000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1443" y="174" width="1440" height="793" extended-state="6" />
+    <frame x="-1346" y="176" width="1440" height="793" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -647,14 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ResponseMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -667,16 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.111111">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -706,12 +710,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ClientWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49126637">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#240#241#0" expanded="true" />
             <element signature="e#288#289#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48723897">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
