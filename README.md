@@ -3,13 +3,13 @@
 ###TO RUN THE SERVER:
 
   1. git clone and cd into the folder 'Play'
-  2. mvn install
-  3. java -cp target/123-1.0-SNAPSHOT.jar MyServer
+  2. `mvn install`
+  3. `java -cp target/123-1.0-SNAPSHOT.jar MyServer`
   
 ###TO TEST THE SERVER USING bmemcached:
   Please do not use auth to connect to the server, becuase it doesn't support authentication.
   Use:
-  client = bmemcached.Client(('127.0.0.1',)) 
+  `client = bmemcached.Client(('127.0.0.1',))`
   to connect to the server locally.
   
 ###IMPLEMENTATION INTRO:
