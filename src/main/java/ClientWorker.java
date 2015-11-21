@@ -14,10 +14,10 @@ public class ClientWorker implements Runnable {
     }
 
     public void run() {
-        BufferedReader in = null;
+        InputStream in = null;
         OutputStream out = null;
         try {
-            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            in = clientSocket.getInputStream();
             out = clientSocket.getOutputStream();
         } catch (IOException ex) {
             System.out.println("error!");
@@ -31,15 +31,16 @@ public class ClientWorker implements Runnable {
             }
             try {
                 protocolMessage = new RequestMessage(in);
+                System.out.println("finish creating");
             } catch (IOException ex) {
                 System.out.println("error when creating message:" + ex.getMessage());
                 break;
             }
 
             if (protocolMessage != null) {
-                String response = MessageProcessor.process(protocolMessage);
+                byte [] response = MessageProcessor.process(protocolMessage);
                 try {
-                    out.write(response.getBytes(Charset.forName("ISO-8859-1")));
+                    out.write(response);
                     out.flush();
                 } catch (Exception ex) {
                     System.out.println("error when writing to streams");

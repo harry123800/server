@@ -1,16 +1,21 @@
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by haoqing on 11/16/15.
  */
 public class ResponseMessage extends RequestMessage {
 
-    public ResponseMessage(Boolean isSuccessful, char opCode, String value) {
+    public ResponseMessage(Boolean isSuccessful, byte opCode, byte[] value, byte[] extras) {
 
         if (opCode == 0x00 && !isSuccessful) {
-            value = "Not found";
+            byte[] newValue = {'N', 'o', 't', ' ', 'f', 'o', 'u', 'n', 'd' };
+            value = newValue;
         }
 
         if (opCode == 0x01) {
-            value = "";
+            value = new byte[0];
         }
 
         magic = 0x81;
@@ -21,71 +26,99 @@ public class ResponseMessage extends RequestMessage {
 
         if (super.opCode == 0x00) {
             extraLength = isSuccessful ? 0x04 : 0x00;
+            super.extras = extras;
         } else { // set command
             extraLength = 0x00;
         }
 
         dataType = 0x00;
 
-        status = new char[2];
+        status = new byte[2];
         status[0] = 0x00;
-        status[1] = isSuccessful ? (char) 0x00 : (char) 0x01;
+        status[1] = isSuccessful ? (byte) 0x00 : (byte) 0x01;
 
-        totalLength = extraLength + keyLength + value.length();
 
-        opaque = new char[4];
+        opaque = new byte[4];
         for (int i = 0; i < 4; i++) {
-            opaque[i] = (char) 0x00;
+            opaque[i] = 0x00;
         }
 
-        CAS = new char[8];
+        CAS = new byte[8];
         for (int i = 0; i < 8; i++) {
-            CAS[i] = (char) 0x00;
+            CAS[i] = 0x00;
         }
 
-        extras = new char[super.extraLength];
+        key = new byte[0];
+        super.value = value;
+        totalLength = extraLength + keyLength + super.value.length;
+
+    }
+
+    public byte[] toBytes() {
+
+
+        List<Byte> bytes = new ArrayList<Byte>();
+        bytes.add((byte) super.magic);
+        bytes.add((byte) super.opCode);
+
+        byte[] cur;
+        cur = getByteArrayFromInt(2, super.keyLength);
+        bytes.add(cur[0]);
+        bytes.add(cur[1]);
+
+        cur = getByteArrayFromInt(1, super.extraLength);
+        bytes.add(cur[0]);
+
+        cur = getByteArrayFromInt(1, super.dataType);
+        bytes.add(cur[0]);
+
+        bytes.add(super.status[0]);
+        bytes.add(super.status[1]);
+
+        cur = getByteArrayFromInt(4, super.totalLength);
+        bytes.add(cur[0]);
+        bytes.add(cur[1]);
+        bytes.add(cur[2]);
+        bytes.add(cur[3]);
+
+        for (int i = 0; i < super.opaque.length; i++) {
+            bytes.add(super.opaque[i]);
+        }
+
+        for (int i = 0; i < super.CAS.length; i++) {
+            bytes.add(super.CAS[i]);
+        }
+
         for (int i = 0; i < super.extraLength; i++) {
-            super.extras[i] = (char) 0x00;
+            bytes.add(super.extras[i]);
         }
 
-        key = new char[0];
+        for (int i = 0; i < super.keyLength; i++) {
+            bytes.add(super.key[i]);
+        }
 
-        super.value = value.toCharArray();
+        for (int i = 0; i < super.value.length; i++) {
+            bytes.add(super.value[i]);
+        }
 
-    }
-
-    @Override
-    public String toString() {
-
-        StringBuilder builder = new StringBuilder();
-
-        builder.append((char)super.magic);
-        builder.append((char)super.opCode);
-        builder.append(getCharArrayFromInt(2, super.keyLength));
-        builder.append(getCharArrayFromInt(1, super.extraLength));
-        builder.append(getCharArrayFromInt(1, super.dataType));
-        builder.append(super.status);
-        builder.append(getCharArrayFromInt(4, super.totalLength));
-        builder.append(super.opaque);
-        builder.append(super.CAS);
-        builder.append(extras);
-        builder.append(key);
-        builder.append(value);
-
-        return builder.toString();
+        byte[] res = new byte[bytes.size()];
+        for (int i = 0; i < bytes.size(); i++) {
+            res[i] = bytes.get(i);
+        }
+        return res;
 
     }
 
-    private char[] getCharArrayFromInt(final int count, int val) {
+    private byte[] getByteArrayFromInt(final int count, int val) {
 
         if (count > 4 || count <= 0) {
             return null;
         }
-        char[] res = new char[count];
+        byte[] res = new byte[count];
         int mask = 0x000000FF;
         for (int i = 0; i < count; i++) {
             int cur = mask & val;
-            res[count - 1 - i] = (char) cur;
+            res[count - 1 - i] = (byte) cur;
             val >>>= 8;
         }
         return res;

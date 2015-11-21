@@ -1,5 +1,9 @@
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.util.IntSummaryStatistics;
 
 /**
  * Created by haoqing on 11/16/15.
@@ -8,22 +12,22 @@ public class RequestMessage {
     //todo(haoqing) : use @Setter @Getter to protect attributes, for now all public
     public int magic;
     public int opCode;
-    public int keyLength = 0;
-    public int extraLength = 0;
-    public int dataType = 0;
-    public char[] status;
+    public int keyLength;
+    public int extraLength;
+    public int dataType;
+    public byte[] status;
     public int totalLength;
-    public char[] opaque;
-    public char [] CAS;
-    public char [] extras;
-    public char [] key;
-    public char [] value;
+    public byte[] opaque;
+    public byte [] CAS;
+    public byte [] extras;
+    public byte [] key;
+    public byte [] value;
 
-    private BufferedReader in;
+    private InputStream in;
 
     public RequestMessage(){}
 
-    public RequestMessage(BufferedReader in) throws IOException {
+    public RequestMessage(InputStream in) throws IOException {
 
         if (in == null) {
             throw new IOException("buffered reader is null, error in creating request");
@@ -31,13 +35,13 @@ public class RequestMessage {
 
         this.in = in;
 
-        char [] cur;
+        byte [] cur;
 
         magic = read(1)[0];
         opCode = read(1)[0];
 
         cur = read(2);
-        keyLength = (cur[0] << 8) + cur[1];
+        keyLength = (cur[0] << 8) + (cur[1] & 0x0000007F) + ((cur[1] & 0x00000100) == 0 ? 0 : 0x00000100) ;
 
         extraLength = read(1)[0];
 
@@ -46,7 +50,8 @@ public class RequestMessage {
         status = read(2);
 
         cur = read(4);
-        totalLength = (cur[0] << 24) + (cur[1] << 16) + (cur[2] << 8) + cur[3];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(cur);
+        totalLength = byteBuffer.getInt();
 
         opaque = read(4);
 
@@ -58,13 +63,14 @@ public class RequestMessage {
 
         value = read(totalLength - extraLength - keyLength);
 
+
+
     }
 
-    private char[] read(int num) {
-
+    private byte [] read(int num) {
         int count = num;
         int pos = 0;
-        char[] res = new char[num];
+        byte[] res = new byte[num];
 
         while (true) {
             if (count == 0) {
@@ -82,7 +88,6 @@ public class RequestMessage {
                 System.out.println(ex.getMessage());
             }
         }
-
     }
 
 }
