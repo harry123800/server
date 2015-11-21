@@ -31,7 +31,6 @@ public class ClientWorker implements Runnable {
             }
             try {
                 protocolMessage = new RequestMessage(in);
-                System.out.println("finish creating");
             } catch (IOException ex) {
                 System.out.println("error when creating message:" + ex.getMessage());
                 break;
